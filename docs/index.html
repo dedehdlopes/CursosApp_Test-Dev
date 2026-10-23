@@ -1,194 +1,750 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Catálogo de Cursos – Documentação</title>
-<style>
-:root{--bg:#fff;--fg:#1b1b1b;--mut:#6f6f76;--link:#0069c2;--side:#f9f9fb;--line:#cdcdd4;--code:#eeeef2;--note:#e8f1fb;--noteb:#0069c2;--warn:#fdf3e1;--warnb:#c47d00;--hl:#e2e8f7}
-[data-theme=dark]{--bg:#1b1b1b;--fg:#fff;--mut:#b0b0b6;--link:#8cb4ff;--side:#222226;--line:#4a4a50;--code:#2b2b30;--note:#1d2a3c;--noteb:#8cb4ff;--warn:#33291a;--warnb:#f0b44d;--hl:#2c3550}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1b1b;--fg:#fff;--mut:#b0b0b6;--link:#8cb4ff;--side:#222226;--line:#4a4a50;--code:#2b2b30;--note:#1d2a3c;--noteb:#8cb4ff;--warn:#33291a;--warnb:#f0b44d;--hl:#2c3550}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:var(--link)}
-:focus-visible{outline:3px solid #1a73e8;outline-offset:2px}
-header.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;padding:10px 24px;background:var(--bg);border-bottom:1px solid var(--line)}
-.logo{font-weight:800;font-size:1.1rem;text-decoration:none;color:var(--fg)}.logo span{color:var(--link)}
-.top nav{display:flex;gap:16px;margin-left:12px}.top nav a{color:var(--fg);text-decoration:none;font-size:.95rem}.top nav a:hover{text-decoration:underline}
-.top .sp{flex:1}
-.top input{width:min(280px,30vw);padding:.45rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit}
-.top button{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:.4rem .7rem;cursor:pointer;font:inherit}
-.layout{display:grid;grid-template-columns:280px minmax(0,1fr) 240px;max-width:1500px;margin:auto}
-aside.side{background:var(--side);border-right:1px solid var(--line);padding:20px 12px;position:sticky;top:57px;height:calc(100vh - 57px);overflow:auto}
-.side h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:18px 8px 6px}
-.side ul{list-style:none;margin:0;padding:0}
-.side a{display:block;padding:5px 10px;border-radius:4px;color:var(--fg);text-decoration:none;font-size:.95rem}
-.side a:hover{background:var(--hl)}.side a[aria-current=page]{background:var(--hl);font-weight:700;border-left:3px solid var(--link)}
-main{padding:24px 40px 64px;min-width:0}
-.crumbs{font-size:.85rem;color:var(--mut)}.crumbs a{color:var(--mut)}
-.crumbs span+span::before{content:"›";margin:0 .5em}
-h1{font-size:2.3rem;line-height:1.2;margin:.6rem 0 1rem}
-h2{font-size:1.5rem;margin:2.2rem 0 .6rem;padding-top:.4rem;border-top:1px solid var(--line)}
-h3{font-size:1.15rem;margin:1.6rem 0 .4rem}
-p.lead{font-size:1.1rem}
-code{background:var(--code);padding:.1em .35em;border-radius:4px;font:.9em ui-monospace,Menlo,Consolas,monospace}
-pre{background:var(--code);padding:14px 16px;border-radius:6px;overflow:auto;border:1px solid var(--line)}pre code{padding:0;background:none}
-table{border-collapse:collapse;width:100%;margin:12px 0;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}th{background:var(--side)}
-.note,.warn{padding:12px 16px;border-left:4px solid var(--noteb);background:var(--note);border-radius:4px;margin:16px 0}
-.warn{border-color:var(--warnb);background:var(--warn)}
-.note strong:first-child,.warn strong:first-child{display:block;margin-bottom:2px}
-.get{display:inline-block;background:#1f7a3d;color:#fff;font-weight:700;font-size:.8rem;padding:1px 8px;border-radius:4px;margin-right:6px}
-.see li{margin:2px 0}
-aside.toc{padding:24px 16px;position:sticky;top:57px;height:calc(100vh - 57px);overflow:auto;font-size:.88rem}
-.toc h2{font-size:.78rem;text-transform:uppercase;color:var(--mut);margin:0 0 8px;border:0;padding:0}
-.toc ul{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}.toc a{display:block;padding:3px 12px;color:var(--mut);text-decoration:none}.toc a:hover{color:var(--link)}
-footer{border-top:1px solid var(--line);margin-top:48px;padding-top:16px;color:var(--mut);font-size:.88rem}
-@media(max-width:1100px){.layout{grid-template-columns:260px minmax(0,1fr)}aside.toc{display:none}}
-@media(max-width:760px){.layout{grid-template-columns:1fr}aside.side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}main{padding:20px}.top nav{display:none}.top input{width:100%}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Catálogo de Cursos – Documentação</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --fg: #1b1b1b;
+      --mut: #6f6f76;
+      --link: #0069c2;
+      --side: #f9f9fb;
+      --line: #cdcdd4;
+      --code: #eeeef2;
+      --note: #e8f1fb;
+      --noteb: #0069c2;
+      --warn: #fdf3e1;
+      --warnb: #c47d00;
+      --hl: #e2e8f7
+    }
+
+    [data-theme=dark] {
+      --bg: #1b1b1b;
+      --fg: #fff;
+      --mut: #b0b0b6;
+      --link: #8cb4ff;
+      --side: #222226;
+      --line: #4a4a50;
+      --code: #2b2b30;
+      --note: #1d2a3c;
+      --noteb: #8cb4ff;
+      --warn: #33291a;
+      --warnb: #f0b44d;
+      --hl: #2c3550
+    }
+
+    @media(prefers-color-scheme:dark) {
+      :root:not([data-theme=light]) {
+        --bg: #1b1b1b;
+        --fg: #fff;
+        --mut: #b0b0b6;
+        --link: #8cb4ff;
+        --side: #222226;
+        --line: #4a4a50;
+        --code: #2b2b30;
+        --note: #1d2a3c;
+        --noteb: #8cb4ff;
+        --warn: #33291a;
+        --warnb: #f0b44d;
+        --hl: #2c3550
+      }
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif
+    }
+
+    a {
+      color: var(--link)
+    }
+
+    :focus-visible {
+      outline: 3px solid #1a73e8;
+      outline-offset: 2px
+    }
+
+    header.top {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 24px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--fg)
+    }
+
+    .logo span {
+      color: var(--link)
+    }
+
+    .top nav {
+      display: flex;
+      gap: 16px;
+      margin-left: 12px
+    }
+
+    .top nav a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: .95rem
+    }
+
+    .top nav a:hover {
+      text-decoration: underline
+    }
+
+    .top .sp {
+      flex: 1
+    }
+
+    .top input {
+      width: min(280px, 30vw);
+      padding: .45rem .7rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--fg);
+      font: inherit
+    }
+
+    .top button {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--fg);
+      border-radius: 6px;
+      padding: .4rem .7rem;
+      cursor: pointer;
+      font: inherit
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 240px;
+      max-width: 1500px;
+      margin: auto
+    }
+
+    aside.side {
+      background: var(--side);
+      border-right: 1px solid var(--line);
+      padding: 20px 12px;
+      position: sticky;
+      top: 57px;
+      height: calc(100vh - 57px);
+      overflow: auto
+    }
+
+    .side h2 {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--mut);
+      margin: 18px 8px 6px
+    }
+
+    .side ul {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .side a {
+      display: block;
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: .95rem
+    }
+
+    .side a:hover {
+      background: var(--hl)
+    }
+
+    .side a[aria-current=page] {
+      background: var(--hl);
+      font-weight: 700;
+      border-left: 3px solid var(--link)
+    }
+
+    main {
+      padding: 24px 40px 64px;
+      min-width: 0
+    }
+
+    .crumbs {
+      font-size: .85rem;
+      color: var(--mut)
+    }
+
+    .crumbs a {
+      color: var(--mut)
+    }
+
+    .crumbs span+span::before {
+      content: "›";
+      margin: 0 .5em
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      line-height: 1.2;
+      margin: .6rem 0 1rem
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 2.2rem 0 .6rem;
+      padding-top: .4rem;
+      border-top: 1px solid var(--line)
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin: 1.6rem 0 .4rem
+    }
+
+    p.lead {
+      font-size: 1.1rem
+    }
+
+    code {
+      background: var(--code);
+      padding: .1em .35em;
+      border-radius: 4px;
+      font: .9em ui-monospace, Menlo, Consolas, monospace
+    }
+
+    pre {
+      background: var(--code);
+      padding: 14px 16px;
+      border-radius: 6px;
+      overflow: auto;
+      border: 1px solid var(--line)
+    }
+
+    pre code {
+      padding: 0;
+      background: none
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+      display: block;
+      overflow-x: auto
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top
+    }
+
+    th {
+      background: var(--side)
+    }
+
+    .note,
+    .warn {
+      padding: 12px 16px;
+      border-left: 4px solid var(--noteb);
+      background: var(--note);
+      border-radius: 4px;
+      margin: 16px 0
+    }
+
+    .warn {
+      border-color: var(--warnb);
+      background: var(--warn)
+    }
+
+    .note strong:first-child,
+    .warn strong:first-child {
+      display: block;
+      margin-bottom: 2px
+    }
+
+    .get {
+      display: inline-block;
+      background: #1f7a3d;
+      color: #fff;
+      font-weight: 700;
+      font-size: .8rem;
+      padding: 1px 8px;
+      border-radius: 4px;
+      margin-right: 6px
+    }
+
+    .see li {
+      margin: 2px 0
+    }
+
+    aside.toc {
+      padding: 24px 16px;
+      position: sticky;
+      top: 57px;
+      height: calc(100vh - 57px);
+      overflow: auto;
+      font-size: .88rem
+    }
+
+    .toc h2 {
+      font-size: .78rem;
+      text-transform: uppercase;
+      color: var(--mut);
+      margin: 0 0 8px;
+      border: 0;
+      padding: 0
+    }
+
+    .toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-left: 2px solid var(--line)
+    }
+
+    .toc a {
+      display: block;
+      padding: 3px 12px;
+      color: var(--mut);
+      text-decoration: none
+    }
+
+    .toc a:hover {
+      color: var(--link)
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 48px;
+      padding-top: 16px;
+      color: var(--mut);
+      font-size: .88rem
+    }
+
+    @media(max-width:1100px) {
+      .layout {
+        grid-template-columns: 260px minmax(0, 1fr)
+      }
+
+      aside.toc {
+        display: none
+      }
+    }
+
+    @media(max-width:760px) {
+      .layout {
+        grid-template-columns: 1fr
+      }
+
+      aside.side {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line)
+      }
+
+      main {
+        padding: 20px
+      }
+
+      .top nav {
+        display: none
+      }
+
+      .top input {
+        width: 100%
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="top">
-  <a class="logo" href="#/visao-geral">Catálogo<span>Docs</span></a>
-  <nav aria-label="Atalhos"><a href="#/execucao">Guias</a><a href="#/api">Referência</a><a href="#/limitacoes">Limitações</a></nav>
-  <span class="sp"></span>
-  <label class="sr" for="q" style="position:absolute;left:-999px">Buscar na documentação</label>
-  <input id="q" type="search" placeholder="Buscar na documentação" autocomplete="off">
-  <button id="tema" type="button" aria-label="Alternar tema claro/escuro">◐ Tema</button>
-</header>
+  <header class="top">
+    <a class="logo" href="#/visao-geral">Catálogo<span>Docs</span></a>
+    <nav aria-label="Atalhos"><a href="#/execucao">Guias</a><a href="#/api">Referência</a><a
+        href="#/limitacoes">Limitações</a></nav>
+    <span class="sp"></span>
+    <label class="sr" for="q" style="position:absolute;left:-999px">Buscar na documentação</label>
+    <input id="q" type="search" placeholder="Buscar na documentação" autocomplete="off">
+    <button id="tema" type="button" aria-label="Alternar tema claro/escuro">◐ Tema</button>
+  </header>
 
-<div class="layout">
-<aside class="side" aria-label="Navegação da documentação">
-  <h2>Introdução</h2><ul><li><a href="#/visao-geral">Visão geral</a></li><li><a href="#/execucao">Executar o projeto</a></li></ul>
-  <h2>Guias</h2><ul><li><a href="#/banco">Configuração do banco</a></li><li><a href="#/frontend">Front-end: páginas e acessibilidade</a></li><li><a href="#/publicacao">Publicação</a></li></ul>
-  <h2>Referência</h2><ul><li><a href="#/api">API REST</a></li><li><a href="#/modelo">Modelo de dados</a></li><li><a href="#/estrutura">Estrutura de pastas</a></li><li><a href="#/tecnologias">Tecnologias</a></li></ul>
-  <h2>Projeto</h2><ul><li><a href="#/limitacoes">Limitações e uso de IA</a></li></ul>
-</aside>
+  <div class="layout">
+    <aside class="side" aria-label="Navegação da documentação">
+      <h2>Introdução</h2>
+      <ul>
+        <li><a href="#/visao-geral">Visão geral</a></li>
+        <li><a href="#/execucao">Executar o projeto</a></li>
+      </ul>
+      <h2>Guias</h2>
+      <ul>
+        <li><a href="#/banco">Configuração do banco</a></li>
+        <li><a href="#/frontend">Front-end: páginas e acessibilidade</a></li>
+        <li><a href="#/publicacao">Publicação</a></li>
+      </ul>
+      <h2>Referência</h2>
+      <ul>
+        <li><a href="#/api">API REST</a></li>
+        <li><a href="#/modelo">Modelo de dados</a></li>
+        <li><a href="#/estrutura">Estrutura de pastas</a></li>
+        <li><a href="#/tecnologias">Tecnologias</a></li>
+      </ul>
+      <h2>Projeto</h2>
+      <ul>
+        <li><a href="#/limitacoes">Limitações e uso de IA</a></li>
+      </ul>
+    </aside>
 
-<main id="conteudo">
-<nav class="crumbs" id="crumbs" aria-label="Trilha de navegação"></nav>
+    <main id="conteudo">
+      <nav class="crumbs" id="crumbs" aria-label="Trilha de navegação"></nav>
 
-<article class="page" id="visao-geral" data-sec="Introdução" data-title="Visão geral">
-  <h1>Catálogo de Cursos – Visão geral</h1>
-  <p class="lead">Aplicação web para consultar, pesquisar, filtrar e ver detalhes de cursos de um ambiente educacional (Moodle fictício), com front-end baseado no protótipo SESI+Indústria do Figma, API em C#/.NET e banco SQLite.</p>
-  <div class="note"><strong>Nota</strong>Não há integração com Moodle nem cadastro, edição ou exclusão de cursos. Todos os dados são fictícios.</div>
-  <h2 id="o-que-faz">O que a aplicação faz</h2>
-  <ul><li>Lista cursos por meio da API.</li><li>Pesquisa pelo nome e filtra por categoria, modalidade ou status, combinando pesquisa e filtros.</li><li>Mostra a quantidade de resultados, permite limpar os filtros e exibe mensagens de carregamento, erro e nenhum resultado.</li><li>Abre o detalhe do curso e a Área do aluno com módulos, aulas e progresso.</li></ul>
-  <h2 id="paginas">Páginas</h2>
-  <table><thead><tr><th>Rota</th><th>Arquivo</th><th>Descrição</th></tr></thead><tbody>
-  <tr><td><code>/</code></td><td><code>index.html</code></td><td>Landing page: hero, principais cursos, impacto, depoimentos e chamada final.</td></tr>
-  <tr><td><code>/cursos.html</code></td><td><code>cursos.html</code></td><td>Catálogo com pesquisa, filtros e contagem.</td></tr>
-  <tr><td><code>/curso.html?id=1</code></td><td><code>curso.html</code></td><td>Detalhes do curso, módulos e acordeões.</td></tr>
-  <tr><td><code>/ava.html?id=1</code></td><td><code>ava.html</code></td><td>Área do aluno: aulas e progresso.</td></tr></tbody></table>
-  <h2 id="arquitetura">Arquitetura</h2>
-  <p>Um único projeto ASP.NET Core serve o front-end estático (<code>wwwroot</code>) e a API REST (<code>/api</code>). O JavaScript consome a API com <code>fetch</code>; a API consulta o SQLite pelo Entity Framework Core.</p>
-<pre><code>Navegador ──GET /cursos.html──────▶ Arquivos estáticos (wwwroot)
+      <article class="page" id="visao-geral" data-sec="Introdução" data-title="Visão geral">
+        <h1>Catálogo de Cursos – Visão geral</h1>
+        <p class="lead">Aplicação web para consultar, pesquisar, filtrar e ver detalhes de cursos de um ambiente
+          educacional (Moodle fictício), com front-end baseado no protótipo SESI+Indústria do Figma, API em C#/.NET e
+          banco SQLite.</p>
+        <div class="note"><strong>Nota</strong>Não há integração com Moodle nem cadastro, edição ou exclusão de cursos.
+          Todos os dados são fictícios.</div>
+        <h2 id="o-que-faz">O que a aplicação faz</h2>
+        <ul>
+          <li>Lista cursos por meio da API.</li>
+          <li>Pesquisa pelo nome e filtra por categoria, modalidade ou status, combinando pesquisa e filtros.</li>
+          <li>Mostra a quantidade de resultados, permite limpar os filtros e exibe mensagens de carregamento, erro e
+            nenhum resultado.</li>
+          <li>Abre o detalhe do curso e a Área do aluno com módulos, aulas e progresso.</li>
+        </ul>
+        <h2 id="paginas">Páginas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rota</th>
+              <th>Arquivo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/</code></td>
+              <td><code>index.html</code></td>
+              <td>Landing page: hero, principais cursos, impacto, depoimentos e chamada final.</td>
+            </tr>
+            <tr>
+              <td><code>/cursos.html</code></td>
+              <td><code>cursos.html</code></td>
+              <td>Catálogo com pesquisa, filtros e contagem.</td>
+            </tr>
+            <tr>
+              <td><code>/curso.html?id=1</code></td>
+              <td><code>curso.html</code></td>
+              <td>Detalhes do curso, módulos e acordeões.</td>
+            </tr>
+            <tr>
+              <td><code>/ava.html?id=1</code></td>
+              <td><code>ava.html</code></td>
+              <td>Área do aluno: aulas e progresso.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="arquitetura">Arquitetura</h2>
+        <p>Um único projeto ASP.NET Core serve o front-end estático (<code>wwwroot</code>) e a API REST
+          (<code>/api</code>). O JavaScript consome a API com <code>fetch</code>; a API consulta o SQLite pelo Entity
+          Framework Core.</p>
+        <pre><code>Navegador ──GET /cursos.html──────▶ Arquivos estáticos (wwwroot)
 Navegador ──fetch /api/cursos?...─▶ Minimal API (Program.cs)
                                        │ EF Core (LINQ)
                                        ▼
                                   SQLite (cursos.db)
 Navegador ◀──JSON (camelCase)─────────┘</code></pre>
-  <h2 id="dados">Dados de exemplo</h2>
-  <p>7 cursos, 4 categorias, 2 modalidades e 3 status, com cargas horárias de 20 a 48 horas.</p>
-  <table><thead><tr><th>Curso</th><th>Categoria</th><th>Modalidade</th><th>Carga</th><th>Status</th></tr></thead><tbody>
-  <tr><td>Matemática para a Precisão: Medidas e Escalas na Metalurgia</td><td>Matemática</td><td>EaD</td><td>40 h</td><td>Disponível</td></tr>
-  <tr><td>Geometria e Modelagem no Design Têxtil</td><td>Matemática</td><td>Presencial</td><td>30 h</td><td>Disponível</td></tr>
-  <tr><td>Estatística e Controle de Qualidade na Produção</td><td>Matemática</td><td>EaD</td><td>36 h</td><td>Em breve</td></tr>
-  <tr><td>Física do Movimento e da Energia na Metalurgia</td><td>Ciências da Natureza</td><td>Presencial</td><td>48 h</td><td>Encerrado</td></tr>
-  <tr><td>Química Sustentável no Acabamento Industrial</td><td>Ciências da Natureza</td><td>EaD</td><td>32 h</td><td>Disponível</td></tr>
-  <tr><td>Gestão de Resíduos e Economia Circular na Indústria</td><td>Sustentabilidade</td><td>EaD</td><td>24 h</td><td>Em breve</td></tr>
-  <tr><td>Comunicação Técnica e Leitura de Manuais Industriais</td><td>Linguagens</td><td>Presencial</td><td>20 h</td><td>Disponível</td></tr></tbody></table>
-  <h2 id="ver-tambem">Veja também</h2>
-  <ul class="see"><li><a href="#/execucao">Executar o projeto</a></li><li><a href="#/api">API REST</a></li><li><a href="#/estrutura">Estrutura de pastas</a></li></ul>
-</article>
+        <h2 id="dados">Dados de exemplo</h2>
+        <p>7 cursos, 4 categorias, 2 modalidades e 3 status, com cargas horárias de 20 a 48 horas.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Curso</th>
+              <th>Categoria</th>
+              <th>Modalidade</th>
+              <th>Carga</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Matemática para a Precisão: Medidas e Escalas na Metalurgia</td>
+              <td>Matemática</td>
+              <td>EaD</td>
+              <td>40 h</td>
+              <td>Disponível</td>
+            </tr>
+            <tr>
+              <td>Geometria e Modelagem no Design Têxtil</td>
+              <td>Matemática</td>
+              <td>Presencial</td>
+              <td>30 h</td>
+              <td>Disponível</td>
+            </tr>
+            <tr>
+              <td>Estatística e Controle de Qualidade na Produção</td>
+              <td>Matemática</td>
+              <td>EaD</td>
+              <td>36 h</td>
+              <td>Em breve</td>
+            </tr>
+            <tr>
+              <td>Física do Movimento e da Energia na Metalurgia</td>
+              <td>Ciências da Natureza</td>
+              <td>Presencial</td>
+              <td>48 h</td>
+              <td>Encerrado</td>
+            </tr>
+            <tr>
+              <td>Química Sustentável no Acabamento Industrial</td>
+              <td>Ciências da Natureza</td>
+              <td>EaD</td>
+              <td>32 h</td>
+              <td>Disponível</td>
+            </tr>
+            <tr>
+              <td>Gestão de Resíduos e Economia Circular na Indústria</td>
+              <td>Sustentabilidade</td>
+              <td>EaD</td>
+              <td>24 h</td>
+              <td>Em breve</td>
+            </tr>
+            <tr>
+              <td>Comunicação Técnica e Leitura de Manuais Industriais</td>
+              <td>Linguagens</td>
+              <td>Presencial</td>
+              <td>20 h</td>
+              <td>Disponível</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="ver-tambem">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/execucao">Executar o projeto</a></li>
+          <li><a href="#/api">API REST</a></li>
+          <li><a href="#/estrutura">Estrutura de pastas</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="execucao" data-sec="Introdução" data-title="Executar o projeto" hidden>
-  <h1>Executar o projeto</h1>
-  <p class="lead">Como rodar a aplicação localmente, com ou sem Docker.</p>
-  <h2 id="requisitos">Requisitos</h2>
-  <ul><li><a href="https://dotnet.microsoft.com/download">.NET 8 SDK</a> (confira com <code>dotnet --version</code>; deve começar com <code>8.</code>).</li><li>Internet na primeira execução, para restaurar o pacote do EF Core.</li></ul>
-  <h2 id="dotnet-run">Com o .NET</h2>
-<pre><code>cd CursosApp
+      <article class="page" id="execucao" data-sec="Introdução" data-title="Executar o projeto" hidden>
+        <h1>Executar o projeto</h1>
+        <p class="lead">Como rodar a aplicação localmente, com ou sem Docker.</p>
+        <h2 id="requisitos">Requisitos</h2>
+        <ul>
+          <li><a href="https://dotnet.microsoft.com/download">.NET 8 SDK</a> (confira com <code>dotnet --version</code>;
+            deve começar com <code>8.</code>).</li>
+          <li>Internet na primeira execução, para restaurar o pacote do EF Core.</li>
+        </ul>
+        <h2 id="dotnet-run">Com o .NET</h2>
+        <pre><code>cd CursosApp
 dotnet run</code></pre>
-  <p>Abra a URL exibida no terminal (por exemplo, <code>http://localhost:5000</code>). O banco é criado e populado automaticamente.</p>
-  <div class="warn"><strong>Atenção</strong>Abra o site pelo endereço do <code>dotnet run</code>. Abrir <code>index.html</code> direto do disco impede o carregamento dos cursos, pois o front-end depende da API.</div>
-  <h2 id="docker">Com Docker</h2>
-<pre><code>docker build -t cursos-app .
+        <p>Abra a URL exibida no terminal (por exemplo, <code>http://localhost:5000</code>). O banco é criado e populado
+          automaticamente.</p>
+        <div class="warn"><strong>Atenção</strong>Abra o site pelo endereço do <code>dotnet run</code>. Abrir
+          <code>index.html</code> direto do disco impede o carregamento dos cursos, pois o front-end depende da API.
+        </div>
+        <h2 id="docker">Com Docker</h2>
+        <pre><code>docker build -t cursos-app .
 docker run -p 8080:8080 cursos-app</code></pre>
-  <p>Acesse <code>http://localhost:8080</code>.</p>
-  <h2 id="porta">Mudar a porta</h2>
-<pre><code>dotnet run --urls http://localhost:5050</code></pre>
-  <h2 id="ver-tambem-exec">Veja também</h2>
-  <ul class="see"><li><a href="#/banco">Configuração do banco</a></li><li><a href="#/publicacao">Publicação</a></li></ul>
-</article>
+        <p>Acesse <code>http://localhost:8080</code>.</p>
+        <h2 id="porta">Mudar a porta</h2>
+        <pre><code>dotnet run --urls http://localhost:5050</code></pre>
+        <h2 id="ver-tambem-exec">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/banco">Configuração do banco</a></li>
+          <li><a href="#/publicacao">Publicação</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="banco" data-sec="Guias" data-title="Configuração do banco" hidden>
-  <h1>Configuração do banco</h1>
-  <p class="lead">O projeto usa SQLite, banco relacional de código aberto em um único arquivo, sem servidor.</p>
-  <h2 id="criacao">Criação e carga inicial</h2>
-  <p>Na inicialização, <code>Program.cs</code> chama <code>EnsureCreated()</code>, que cria <code>cursos.db</code> e as tabelas se não existirem, e <code>Seed.Run(db)</code>, que insere os cursos fictícios apenas se a tabela estiver vazia.</p>
-  <h2 id="connection">Connection string</h2>
-  <table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody>
-  <tr><td>Padrão</td><td><code>Data Source=cursos.db</code></td></tr>
-  <tr><td>Variável de ambiente</td><td><code>ConnectionStrings__Default</code></td></tr></tbody></table>
-  <h2 id="zerar">Zerar os dados</h2>
-  <p>Pare o servidor, apague <code>cursos.db</code> e rode de novo. Isso também é necessário depois de alterar o seed em <code>Data.cs</code>.</p>
-  <div class="note"><strong>Nota</strong>Não há migrations: o esquema é criado por <code>EnsureCreated</code>. Para evoluir o esquema, adote <code>dotnet ef migrations add</code>.</div>
-  <h2 id="ver-tambem-banco">Veja também</h2>
-  <ul class="see"><li><a href="#/modelo">Modelo de dados</a></li></ul>
-</article>
+      <article class="page" id="banco" data-sec="Guias" data-title="Configuração do banco" hidden>
+        <h1>Configuração do banco</h1>
+        <p class="lead">O projeto usa SQLite, banco relacional de código aberto em um único arquivo, sem servidor.</p>
+        <h2 id="criacao">Criação e carga inicial</h2>
+        <p>Na inicialização, <code>Program.cs</code> chama <code>EnsureCreated()</code>, que cria <code>cursos.db</code>
+          e as tabelas se não existirem, e <code>Seed.Run(db)</code>, que insere os cursos fictícios apenas se a tabela
+          estiver vazia.</p>
+        <h2 id="connection">Connection string</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Padrão</td>
+              <td><code>Data Source=cursos.db</code></td>
+            </tr>
+            <tr>
+              <td>Variável de ambiente</td>
+              <td><code>ConnectionStrings__Default</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="zerar">Zerar os dados</h2>
+        <p>Pare o servidor, apague <code>cursos.db</code> e rode de novo. Isso também é necessário depois de alterar o
+          seed em <code>Data.cs</code>.</p>
+        <div class="note"><strong>Nota</strong>Não há migrations: o esquema é criado por <code>EnsureCreated</code>.
+          Para evoluir o esquema, adote <code>dotnet ef migrations add</code>.</div>
+        <h2 id="ver-tambem-banco">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/modelo">Modelo de dados</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="frontend" data-sec="Guias" data-title="Front-end: páginas e acessibilidade" hidden>
-  <h1>Front-end: páginas e acessibilidade</h1>
-  <p class="lead">HTML, CSS e JavaScript puros, sem frameworks, seguindo o protótipo do Figma (Open Sans, vermelho SESI, bege e vinho).</p>
-  <h2 id="js">Organização do JavaScript</h2>
-  <p>O arquivo <code>wwwroot/js/app.js</code> é compartilhado por todas as páginas. O atributo <code>data-page</code> do <code>&lt;body&gt;</code> define qual função executa:</p>
-  <table><thead><tr><th>data-page</th><th>Função</th><th>Responsabilidade</th></tr></thead><tbody>
-  <tr><td><code>home</code></td><td><code>home()</code></td><td>Carrossel de cursos e depoimentos.</td></tr>
-  <tr><td><code>catalogo</code></td><td><code>catalogo()</code></td><td>Pesquisa, filtros, contagem e estados de interface.</td></tr>
-  <tr><td><code>curso</code></td><td><code>curso()</code></td><td>Detalhe do curso e barra fixa.</td></tr>
-  <tr><td><code>ava</code></td><td><code>ava()</code></td><td>Aulas, busca e progresso (salvo em <code>localStorage</code>).</td></tr></tbody></table>
-  <h2 id="estados">Estados de interface</h2>
-  <p>Carregando (<code>role="status"</code>), erro (<code>role="alert"</code> com botão “Tentar novamente”), nenhum resultado e sucesso com a contagem em uma região <code>aria-live</code>.</p>
-  <h2 id="responsividade">Responsividade</h2>
-  <p>CSS Grid com <code>auto-fill</code>/<code>auto-fit</code>, Flexbox, carrosséis com <code>scroll-snap</code> e uma única coluna abaixo de 800 px.</p>
-  <h2 id="acessibilidade">Decisões de acessibilidade</h2>
-  <ul><li>HTML semântico e link “Ir para o conteúdo”.</li><li>Campos com <code>label</code>, foco visível e <code>aria-current</code> na aula atual.</li><li>Acordeões com <code>&lt;details&gt;</code> e carrosséis acessíveis por teclado, com botões rotulados.</li><li>Status e progresso também em texto, não só por cor; <code>alt</code> nas imagens informativas.</li><li>Respeito a <code>prefers-reduced-motion</code>.</li></ul>
-  <h2 id="ver-tambem-front">Veja também</h2>
-  <ul class="see"><li><a href="#/estrutura">Estrutura de pastas</a></li><li><a href="#/api">API REST</a></li></ul>
-</article>
+      <article class="page" id="frontend" data-sec="Guias" data-title="Front-end: páginas e acessibilidade" hidden>
+        <h1>Front-end: páginas e acessibilidade</h1>
+        <p class="lead">HTML, CSS e JavaScript puros, sem frameworks, seguindo o protótipo do Figma (Open Sans, vermelho
+          SESI, bege e vinho).</p>
+        <h2 id="js">Organização do JavaScript</h2>
+        <p>O arquivo <code>wwwroot/js/app.js</code> é compartilhado por todas as páginas. O atributo
+          <code>data-page</code> do <code>&lt;body&gt;</code> define qual função executa:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>data-page</th>
+              <th>Função</th>
+              <th>Responsabilidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>home</code></td>
+              <td><code>home()</code></td>
+              <td>Carrossel de cursos e depoimentos.</td>
+            </tr>
+            <tr>
+              <td><code>catalogo</code></td>
+              <td><code>catalogo()</code></td>
+              <td>Pesquisa, filtros, contagem e estados de interface.</td>
+            </tr>
+            <tr>
+              <td><code>curso</code></td>
+              <td><code>curso()</code></td>
+              <td>Detalhe do curso e barra fixa.</td>
+            </tr>
+            <tr>
+              <td><code>ava</code></td>
+              <td><code>ava()</code></td>
+              <td>Aulas, busca e progresso (salvo em <code>localStorage</code>).</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="estados">Estados de interface</h2>
+        <p>Carregando (<code>role="status"</code>), erro (<code>role="alert"</code> com botão “Tentar novamente”),
+          nenhum resultado e sucesso com a contagem em uma região <code>aria-live</code>.</p>
+        <h2 id="responsividade">Responsividade</h2>
+        <p>CSS Grid com <code>auto-fill</code>/<code>auto-fit</code>, Flexbox, carrosséis com <code>scroll-snap</code> e
+          uma única coluna abaixo de 800 px.</p>
+        <h2 id="acessibilidade">Decisões de acessibilidade</h2>
+        <ul>
+          <li>HTML semântico e link “Ir para o conteúdo”.</li>
+          <li>Campos com <code>label</code>, foco visível e <code>aria-current</code> na aula atual.</li>
+          <li>Acordeões com <code>&lt;details&gt;</code> e carrosséis acessíveis por teclado, com botões rotulados.</li>
+          <li>Status e progresso também em texto, não só por cor; <code>alt</code> nas imagens informativas.</li>
+          <li>Respeito a <code>prefers-reduced-motion</code>.</li>
+        </ul>
+        <h2 id="ver-tambem-front">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/estrutura">Estrutura de pastas</a></li>
+          <li><a href="#/api">API REST</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="publicacao" data-sec="Guias" data-title="Publicação" hidden>
-  <h1>Publicação</h1>
-  <p class="lead">Como gerar os arquivos de publicação e colocar a aplicação no ar gratuitamente.</p>
-  <h2 id="zip">Arquivos de publicação (ZIP)</h2>
-<pre><code>dotnet publish -c Release -o publish</code></pre>
-  <p>Compacte a pasta <code>publish</code> em um arquivo ZIP.</p>
-  <h2 id="render">Render (Docker)</h2>
-  <ol><li>Suba o projeto no GitHub.</li><li>No Render, escolha <strong>New → Web Service</strong> e conecte o repositório.</li><li>Selecione <strong>Docker</strong> e o plano <strong>Free</strong>, e crie o serviço.</li><li>Se não responder, defina a variável <code>PORT=8080</code>.</li></ol>
-  <div class="warn"><strong>Atenção</strong>No plano gratuito do Render o serviço dorme após cerca de 15 minutos sem acesso, e o primeiro acesso seguinte pode levar cerca de um minuto. Confira os limites atuais na página de preços.</div>
-  <p>O banco é recriado e repopulado a cada reinício, o que não afeta a aplicação, pois os cursos vêm do seed.</p>
-  <h2 id="ver-tambem-pub">Veja também</h2>
-  <ul class="see"><li><a href="#/banco">Configuração do banco</a></li><li><a href="#/limitacoes">Limitações conhecidas</a></li></ul>
-</article>
+      <article class="page" id="publicacao" data-sec="Guias" data-title="Publicação" hidden>
+        <h1>Publicação</h1>
+        <p class="lead">Como gerar os arquivos de publicação e colocar a aplicação no ar gratuitamente.</p>
+        <h2 id="zip">Arquivos de publicação (ZIP)</h2>
+        <pre><code>dotnet publish -c Release -o publish</code></pre>
+        <p>Compacte a pasta <code>publish</code> em um arquivo ZIP.</p>
+        <h2 id="render">Render (Docker)</h2>
+        <ol>
+          <li>Suba o projeto no GitHub.</li>
+          <li>No Render, escolha <strong>New → Web Service</strong> e conecte o repositório.</li>
+          <li>Selecione <strong>Docker</strong> e o plano <strong>Free</strong>, e crie o serviço.</li>
+          <li>Se não responder, defina a variável <code>PORT=8080</code>.</li>
+        </ol>
+        <div class="warn"><strong>Atenção</strong>No plano gratuito do Render o serviço dorme após cerca de 15 minutos
+          sem acesso, e o primeiro acesso seguinte pode levar cerca de um minuto. Confira os limites atuais na página de
+          preços.</div>
+        <p>O banco é recriado e repopulado a cada reinício, o que não afeta a aplicação, pois os cursos vêm do seed.</p>
+        <h2 id="ver-tambem-pub">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/banco">Configuração do banco</a></li>
+          <li><a href="#/limitacoes">Limitações conhecidas</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="api" data-sec="Referência" data-title="API REST" hidden>
-  <h1>API REST</h1>
-  <p class="lead">Três endpoints de leitura, em JSON com propriedades em <code>camelCase</code>. Implementados em <code>Program.cs</code> com Minimal API.</p>
-  <h2 id="listar"><span class="get">GET</span>/api/cursos</h2>
-  <p>Lista os cursos, com pesquisa e filtros combináveis.</p>
-  <h3>Sintaxe</h3>
-<pre><code>GET /api/cursos?busca=&amp;categoria=&amp;modalidade=&amp;status=</code></pre>
-  <h3>Parâmetros</h3>
-  <table><thead><tr><th>Nome</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
-  <tr><td><code>busca</code></td><td>string, opcional</td><td>Texto procurado no nome completo e no nome breve, sem distinção de maiúsculas e acentos.</td></tr>
-  <tr><td><code>categoria</code></td><td>string, opcional</td><td>Igualdade exata, por exemplo <code>Matemática</code>.</td></tr>
-  <tr><td><code>modalidade</code></td><td>string, opcional</td><td><code>EaD</code> ou <code>Presencial</code>.</td></tr>
-  <tr><td><code>status</code></td><td>string, opcional</td><td><code>Disponível</code>, <code>Em breve</code> ou <code>Encerrado</code>.</td></tr></tbody></table>
-  <h3>Valor retornado</h3>
-  <p><strong>200 OK</strong> com o total e a lista, ordenada pelo nome.</p>
-<pre><code>{
+      <article class="page" id="api" data-sec="Referência" data-title="API REST" hidden>
+        <h1>API REST</h1>
+        <p class="lead">Três endpoints de leitura, em JSON com propriedades em <code>camelCase</code>. Implementados em
+          <code>Program.cs</code> com Minimal API.</p>
+        <h2 id="listar"><span class="get">GET</span>/api/cursos</h2>
+        <p>Lista os cursos, com pesquisa e filtros combináveis.</p>
+        <h3>Sintaxe</h3>
+        <pre><code>GET /api/cursos?busca=&amp;categoria=&amp;modalidade=&amp;status=</code></pre>
+        <h3>Parâmetros</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>busca</code></td>
+              <td>string, opcional</td>
+              <td>Texto procurado no nome completo e no nome breve, sem distinção de maiúsculas e acentos.</td>
+            </tr>
+            <tr>
+              <td><code>categoria</code></td>
+              <td>string, opcional</td>
+              <td>Igualdade exata, por exemplo <code>Matemática</code>.</td>
+            </tr>
+            <tr>
+              <td><code>modalidade</code></td>
+              <td>string, opcional</td>
+              <td><code>EaD</code> ou <code>Presencial</code>.</td>
+            </tr>
+            <tr>
+              <td><code>status</code></td>
+              <td>string, opcional</td>
+              <td><code>Disponível</code>, <code>Em breve</code> ou <code>Encerrado</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Valor retornado</h3>
+        <p><strong>200 OK</strong> com o total e a lista, ordenada pelo nome.</p>
+        <pre><code>{
   "total": 1,
   "itens": [{
     "id": 1,
@@ -203,12 +759,29 @@ docker run -p 8080:8080 cursos-app</code></pre>
     "dataDisponibilizacao": "2026-01-05"
   }]
 }</code></pre>
-  <h3>Exemplo</h3>
-<pre><code>GET /api/cursos?busca=matematica&amp;modalidade=EaD&amp;status=Dispon%C3%ADvel</code></pre>
-  <h2 id="detalhe"><span class="get">GET</span>/api/cursos/{id}</h2>
-  <p>Retorna um curso com seus módulos e aulas.</p>
-  <table><thead><tr><th>Status</th><th>Significado</th></tr></thead><tbody><tr><td><code>200</code></td><td>Curso encontrado.</td></tr><tr><td><code>404</code></td><td>Não existe curso com o <code>id</code> informado.</td></tr></tbody></table>
-<pre><code>{
+        <h3>Exemplo</h3>
+        <pre><code>GET /api/cursos?busca=matematica&amp;modalidade=EaD&amp;status=Dispon%C3%ADvel</code></pre>
+        <h2 id="detalhe"><span class="get">GET</span>/api/cursos/{id}</h2>
+        <p>Retorna um curso com seus módulos e aulas.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Significado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>200</code></td>
+              <td>Curso encontrado.</td>
+            </tr>
+            <tr>
+              <td><code>404</code></td>
+              <td>Não existe curso com o <code>id</code> informado.</td>
+            </tr>
+          </tbody>
+        </table>
+        <pre><code>{
   "id": 1, "nomeCompleto": "...", "nomeBreve": "...", "descricao": "...",
   "categoria": "Matemática", "modalidade": "EaD", "cargaHoraria": 40,
   "publicoAlvo": "...", "status": "Disponível", "certificacao": "SESI",
@@ -216,44 +789,144 @@ docker run -p 8080:8080 cursos-app</code></pre>
   "modulos": [{ "ordem": 1, "titulo": "Introdução", "descricao": "...",
     "aulas": [{ "id": 1, "titulo": "Introdução", "conteudo": "..." }] }]
 }</code></pre>
-  <h2 id="filtros"><span class="get">GET</span>/api/filtros</h2>
-  <p>Retorna os valores existentes para preencher os filtros.</p>
-<pre><code>{ "categorias": ["Ciências da Natureza", "Linguagens", "Matemática", "Sustentabilidade"],
+        <h2 id="filtros"><span class="get">GET</span>/api/filtros</h2>
+        <p>Retorna os valores existentes para preencher os filtros.</p>
+        <pre><code>{ "categorias": ["Ciências da Natureza", "Linguagens", "Matemática", "Sustentabilidade"],
   "modalidades": ["EaD", "Presencial"],
   "status": ["Disponível", "Em breve", "Encerrado"] }</code></pre>
-  <div class="note"><strong>Nota</strong>A pesquisa normaliza o texto (remove acentos e converte para minúsculas), então “matematica” encontra “Matemática”. A filtragem é feita em memória, adequada para um catálogo pequeno.</div>
-  <h2 id="ver-tambem-api">Veja também</h2>
-  <ul class="see"><li><a href="#/modelo">Modelo de dados</a></li><li><a href="#/frontend">Front-end</a></li></ul>
-</article>
+        <div class="note"><strong>Nota</strong>A pesquisa normaliza o texto (remove acentos e converte para minúsculas),
+          então “matematica” encontra “Matemática”. A filtragem é feita em memória, adequada para um catálogo pequeno.
+        </div>
+        <h2 id="ver-tambem-api">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/modelo">Modelo de dados</a></li>
+          <li><a href="#/frontend">Front-end</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="modelo" data-sec="Referência" data-title="Modelo de dados" hidden>
-  <h1>Modelo de dados</h1>
-  <p class="lead">Três entidades mapeadas pelo Entity Framework Core em <code>Data.cs</code>. Um curso tem vários módulos, e um módulo tem várias aulas.</p>
-  <h2 id="curso">Curso</h2>
-  <table><thead><tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
-  <tr><td><code>Id</code></td><td>int</td><td>Chave primária.</td></tr>
-  <tr><td><code>NomeCompleto</code>, <code>NomeBreve</code></td><td>string</td><td>Nomes do curso.</td></tr>
-  <tr><td><code>Resumo</code>, <code>Descricao</code></td><td>string</td><td>Texto curto (cartões) e descrição completa.</td></tr>
-  <tr><td><code>Categoria</code>, <code>Modalidade</code>, <code>Status</code></td><td>string</td><td>Valores de filtro.</td></tr>
-  <tr><td><code>CargaHoraria</code></td><td>int</td><td>Horas.</td></tr>
-  <tr><td><code>PublicoAlvo</code>, <code>Certificacao</code></td><td>string</td><td>Público e certificadora (padrão <code>SESI</code>).</td></tr>
-  <tr><td><code>ImagemUrl</code></td><td>string</td><td>Imagem de apresentação.</td></tr>
-  <tr><td><code>DataDisponibilizacao</code></td><td>DateOnly?</td><td>Opcional.</td></tr></tbody></table>
-  <h2 id="modulo">Modulo</h2>
-  <table><thead><tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
-  <tr><td><code>Id</code>, <code>CursoId</code></td><td>int</td><td>Chave e referência ao curso.</td></tr><tr><td><code>Ordem</code></td><td>int</td><td>Posição no curso.</td></tr><tr><td><code>Titulo</code>, <code>Descricao</code></td><td>string</td><td>Título e descrição do módulo.</td></tr></tbody></table>
-  <h2 id="aula">Aula</h2>
-  <table><thead><tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody>
-  <tr><td><code>Id</code>, <code>ModuloId</code></td><td>int</td><td>Chave e referência ao módulo.</td></tr><tr><td><code>Ordem</code></td><td>int</td><td>Posição no módulo.</td></tr><tr><td><code>Titulo</code>, <code>Conteudo</code></td><td>string</td><td>Título e texto da aula.</td></tr></tbody></table>
-  <div class="note"><strong>Nota</strong>Todo curso tem um módulo “Introdução” (aulas: Introdução, Boas práticas e Extras) e mais três módulos, cada um com vídeo-aula, leitura com exercícios e avaliação.</div>
-  <h2 id="ver-tambem-modelo">Veja também</h2>
-  <ul class="see"><li><a href="#/banco">Configuração do banco</a></li><li><a href="#/api">API REST</a></li></ul>
-</article>
+      <article class="page" id="modelo" data-sec="Referência" data-title="Modelo de dados" hidden>
+        <h1>Modelo de dados</h1>
+        <p class="lead">Três entidades mapeadas pelo Entity Framework Core em <code>Data.cs</code>. Um curso tem vários
+          módulos, e um módulo tem várias aulas.</p>
+        <h2 id="curso">Curso</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Id</code></td>
+              <td>int</td>
+              <td>Chave primária.</td>
+            </tr>
+            <tr>
+              <td><code>NomeCompleto</code>, <code>NomeBreve</code></td>
+              <td>string</td>
+              <td>Nomes do curso.</td>
+            </tr>
+            <tr>
+              <td><code>Resumo</code>, <code>Descricao</code></td>
+              <td>string</td>
+              <td>Texto curto (cartões) e descrição completa.</td>
+            </tr>
+            <tr>
+              <td><code>Categoria</code>, <code>Modalidade</code>, <code>Status</code></td>
+              <td>string</td>
+              <td>Valores de filtro.</td>
+            </tr>
+            <tr>
+              <td><code>CargaHoraria</code></td>
+              <td>int</td>
+              <td>Horas.</td>
+            </tr>
+            <tr>
+              <td><code>PublicoAlvo</code>, <code>Certificacao</code></td>
+              <td>string</td>
+              <td>Público e certificadora (padrão <code>SESI</code>).</td>
+            </tr>
+            <tr>
+              <td><code>ImagemUrl</code></td>
+              <td>string</td>
+              <td>Imagem de apresentação.</td>
+            </tr>
+            <tr>
+              <td><code>DataDisponibilizacao</code></td>
+              <td>DateOnly?</td>
+              <td>Opcional.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="modulo">Modulo</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Id</code>, <code>CursoId</code></td>
+              <td>int</td>
+              <td>Chave e referência ao curso.</td>
+            </tr>
+            <tr>
+              <td><code>Ordem</code></td>
+              <td>int</td>
+              <td>Posição no curso.</td>
+            </tr>
+            <tr>
+              <td><code>Titulo</code>, <code>Descricao</code></td>
+              <td>string</td>
+              <td>Título e descrição do módulo.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="aula">Aula</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Id</code>, <code>ModuloId</code></td>
+              <td>int</td>
+              <td>Chave e referência ao módulo.</td>
+            </tr>
+            <tr>
+              <td><code>Ordem</code></td>
+              <td>int</td>
+              <td>Posição no módulo.</td>
+            </tr>
+            <tr>
+              <td><code>Titulo</code>, <code>Conteudo</code></td>
+              <td>string</td>
+              <td>Título e texto da aula.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note"><strong>Nota</strong>Todo curso tem um módulo “Introdução” (aulas: Introdução, Boas práticas e
+          Extras) e mais três módulos, cada um com vídeo-aula, leitura com exercícios e avaliação.</div>
+        <h2 id="ver-tambem-modelo">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/banco">Configuração do banco</a></li>
+          <li><a href="#/api">API REST</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="estrutura" data-sec="Referência" data-title="Estrutura de pastas" hidden>
-  <h1>Estrutura de pastas</h1>
-  <p class="lead">Onde fica cada arquivo, com caminhos relativos à pasta <code>CursosApp</code>.</p>
-<pre><code>CursosApp/
+      <article class="page" id="estrutura" data-sec="Referência" data-title="Estrutura de pastas" hidden>
+        <h1>Estrutura de pastas</h1>
+        <p class="lead">Onde fica cada arquivo, com caminhos relativos à pasta <code>CursosApp</code>.</p>
+        <pre><code>CursosApp/
 ├── CursosApp.csproj     configuração do projeto .NET e pacotes
 ├── Program.cs           inicialização e endpoints da API
 ├── Data.cs              modelos, DbContext e seed dos cursos
@@ -268,85 +941,203 @@ docker run -p 8080:8080 cursos-app</code></pre>
     ├── js/app.js
     ├── fonts/           OpenSans.ttf e licença
     └── img/             3 JPG e 22 SVG (ícones e logos do Figma)</code></pre>
-  <h2 id="onde-mexer">Onde alterar cada coisa</h2>
-  <table><thead><tr><th>Quero mudar…</th><th>Arquivo</th></tr></thead><tbody>
-  <tr><td>Cursos, módulos e aulas de exemplo</td><td><code>Data.cs</code> (classe <code>Seed</code>)</td></tr>
-  <tr><td>Campos de um curso</td><td><code>Data.cs</code> (classes <code>Curso</code>, <code>Modulo</code>, <code>Aula</code>)</td></tr>
-  <tr><td>Busca, filtros e endpoints</td><td><code>Program.cs</code></td></tr>
-  <tr><td>Cores, fontes e responsividade</td><td><code>wwwroot/css/style.css</code> (variáveis em <code>:root</code>)</td></tr>
-  <tr><td>Cabeçalho, rodapé, depoimentos e lógica das páginas</td><td><code>wwwroot/js/app.js</code></td></tr></tbody></table>
-  <div class="note"><strong>Nota</strong>O conteúdo de <code>wwwroot</code> é servido na raiz: <code>wwwroot/img/star.svg</code> responde em <code>/img/star.svg</code>.</div>
-  <h2 id="ver-tambem-est">Veja também</h2>
-  <ul class="see"><li><a href="#/tecnologias">Tecnologias</a></li></ul>
-</article>
+        <h2 id="onde-mexer">Onde alterar cada coisa</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Quero mudar…</th>
+              <th>Arquivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cursos, módulos e aulas de exemplo</td>
+              <td><code>Data.cs</code> (classe <code>Seed</code>)</td>
+            </tr>
+            <tr>
+              <td>Campos de um curso</td>
+              <td><code>Data.cs</code> (classes <code>Curso</code>, <code>Modulo</code>, <code>Aula</code>)</td>
+            </tr>
+            <tr>
+              <td>Busca, filtros e endpoints</td>
+              <td><code>Program.cs</code></td>
+            </tr>
+            <tr>
+              <td>Cores, fontes e responsividade</td>
+              <td><code>wwwroot/css/style.css</code> (variáveis em <code>:root</code>)</td>
+            </tr>
+            <tr>
+              <td>Cabeçalho, rodapé, depoimentos e lógica das páginas</td>
+              <td><code>wwwroot/js/app.js</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note"><strong>Nota</strong>O conteúdo de <code>wwwroot</code> é servido na raiz:
+          <code>wwwroot/img/star.svg</code> responde em <code>/img/star.svg</code>.</div>
+        <h2 id="ver-tambem-est">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/tecnologias">Tecnologias</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="tecnologias" data-sec="Referência" data-title="Tecnologias" hidden>
-  <h1>Tecnologias</h1>
-  <p class="lead">Linguagem, framework, ORM e banco são de código aberto.</p>
-  <table><thead><tr><th>Camada</th><th>Tecnologia</th><th>Uso no projeto</th></tr></thead><tbody>
-  <tr><td>Linguagem</td><td>C# 12 / .NET 8</td><td>Back-end; top-level statements, <code>DateOnly</code>, LINQ.</td></tr>
-  <tr><td>Web/API</td><td>ASP.NET Core 8 (Minimal API)</td><td>Endpoints em <code>/api</code> e arquivos estáticos (<code>UseDefaultFiles</code>, <code>UseStaticFiles</code>).</td></tr>
-  <tr><td>ORM</td><td>Entity Framework Core 8</td><td><code>AsNoTracking</code>, <code>Include/ThenInclude</code>, <code>EnsureCreated</code> e seed.</td></tr>
-  <tr><td>Banco</td><td>SQLite</td><td>Arquivo <code>cursos.db</code>, sem servidor.</td></tr>
-  <tr><td>Front-end</td><td>HTML5, CSS3, JavaScript</td><td>Semântica e ARIA, Grid/Flex, <code>scroll-snap</code>, <code>fetch</code>, <code>async/await</code>.</td></tr>
-  <tr><td>Tipografia</td><td>Open Sans (SIL OFL)</td><td>Fonte variável fornecida no Figma.</td></tr>
-  <tr><td>Publicação</td><td>Docker</td><td>Build em dois estágios (SDK e runtime).</td></tr>
-  <tr><td>Versionamento</td><td>Git e GitHub</td><td><code>.gitignore</code> exclui <code>bin/</code>, <code>obj/</code>, <code>publish/</code> e <code>*.db</code>.</td></tr></tbody></table>
-  <h2 id="decisoes">Decisões</h2>
-  <table><thead><tr><th>Decisão</th><th>Motivo</th></tr></thead><tbody>
-  <tr><td>Minimal API</td><td>API pequena, menos código.</td></tr><tr><td>Um projeto para API e front-end</td><td>Execução simples e sem CORS.</td></tr>
-  <tr><td>JavaScript puro</td><td>Sem etapa de build, fácil de avaliar.</td></tr><tr><td>SQLite</td><td>Sem configuração; PostgreSQL seria a alternativa para persistência em nuvem.</td></tr></tbody></table>
-  <p>O detalhamento completo está em <code>docs/TECNOLOGIAS.md</code>.</p>
-  <h2 id="ver-tambem-tec">Veja também</h2>
-  <ul class="see"><li><a href="#/api">API REST</a></li><li><a href="#/publicacao">Publicação</a></li></ul>
-</article>
+      <article class="page" id="tecnologias" data-sec="Referência" data-title="Tecnologias" hidden>
+        <h1>Tecnologias</h1>
+        <p class="lead">Linguagem, framework, ORM e banco são de código aberto.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Camada</th>
+              <th>Tecnologia</th>
+              <th>Uso no projeto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Linguagem</td>
+              <td>C# 12 / .NET 8</td>
+              <td>Back-end; top-level statements, <code>DateOnly</code>, LINQ.</td>
+            </tr>
+            <tr>
+              <td>Web/API</td>
+              <td>ASP.NET Core 8 (Minimal API)</td>
+              <td>Endpoints em <code>/api</code> e arquivos estáticos (<code>UseDefaultFiles</code>,
+                <code>UseStaticFiles</code>).</td>
+            </tr>
+            <tr>
+              <td>ORM</td>
+              <td>Entity Framework Core 8</td>
+              <td><code>AsNoTracking</code>, <code>Include/ThenInclude</code>, <code>EnsureCreated</code> e seed.</td>
+            </tr>
+            <tr>
+              <td>Banco</td>
+              <td>SQLite</td>
+              <td>Arquivo <code>cursos.db</code>, sem servidor.</td>
+            </tr>
+            <tr>
+              <td>Front-end</td>
+              <td>HTML5, CSS3, JavaScript</td>
+              <td>Semântica e ARIA, Grid/Flex, <code>scroll-snap</code>, <code>fetch</code>, <code>async/await</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>Tipografia</td>
+              <td>Open Sans (SIL OFL)</td>
+              <td>Fonte variável fornecida no Figma.</td>
+            </tr>
+            <tr>
+              <td>Publicação</td>
+              <td>Docker</td>
+              <td>Build em dois estágios (SDK e runtime).</td>
+            </tr>
+            <tr>
+              <td>Versionamento</td>
+              <td>Git e GitHub</td>
+              <td><code>.gitignore</code> exclui <code>bin/</code>, <code>obj/</code>, <code>publish/</code> e
+                <code>*.db</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="decisoes">Decisões</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Decisão</th>
+              <th>Motivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Minimal API</td>
+              <td>API pequena, menos código.</td>
+            </tr>
+            <tr>
+              <td>Um projeto para API e front-end</td>
+              <td>Execução simples e sem CORS.</td>
+            </tr>
+            <tr>
+              <td>JavaScript puro</td>
+              <td>Sem etapa de build, fácil de avaliar.</td>
+            </tr>
+            <tr>
+              <td>SQLite</td>
+              <td>Sem configuração; PostgreSQL seria a alternativa para persistência em nuvem.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>O detalhamento completo está em <code>docs/TECNOLOGIAS.md</code>.</p>
+        <h2 id="ver-tambem-tec">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/api">API REST</a></li>
+          <li><a href="#/publicacao">Publicação</a></li>
+        </ul>
+      </article>
 
-<article class="page" id="limitacoes" data-sec="Projeto" data-title="Limitações e uso de IA" hidden>
-  <h1>Limitações e uso de IA</h1>
-  <h2 id="limitacoes-conhecidas">Limitações conhecidas</h2>
-  <ul><li>O design foi feito a partir de capturas do Figma, não do arquivo; espaçamentos e detalhes podem diferir.</li><li>Só 3 fotos foram fornecidas, então elas se repetem entre os cursos. O vídeo do hero não foi fornecido (imagem estática).</li><li>“Matricule-se” abre a Área do aluno em modo de demonstração, sem login; o progresso fica no <code>localStorage</code> do navegador.</li><li>Links do rodapé (termos, redes sociais) são ilustrativos.</li><li>Sem migrations, paginação e testes automatizados; a integração com Moodle não foi feita.</li><li>Em contêiner, o SQLite é recriado a cada reinício.</li></ul>
-  <h2 id="uso-de-ia">Uso de Inteligência Artificial</h2>
-  <p>O Claude (Anthropic) foi usado para gerar a base do código e adequá-la ao enunciado e ao Figma. Finalidade, prompts, validação e erros encontrados estão em <code>USO_DE_IA.md</code>.</p>
-  <h2 id="ver-tambem-lim">Veja também</h2>
-  <ul class="see"><li><a href="#/visao-geral">Visão geral</a></li></ul>
-</article>
+      <article class="page" id="limitacoes" data-sec="Projeto" data-title="Limitações e uso de IA" hidden>
+        <h1>Limitações e uso de IA</h1>
+        <h2 id="limitacoes-conhecidas">Limitações conhecidas</h2>
+        <ul>
+          <li>O design foi feito a partir de capturas do Figma, não do arquivo; espaçamentos e detalhes podem diferir.
+          </li>
+          <li>Só 3 fotos foram fornecidas, então elas se repetem entre os cursos. O vídeo do hero não foi fornecido
+            (imagem estática).</li>
+          <li>“Matricule-se” abre a Área do aluno em modo de demonstração, sem login; o progresso fica no
+            <code>localStorage</code> do navegador.</li>
+          <li>Links do rodapé (termos, redes sociais) são ilustrativos.</li>
+          <li>Sem migrations, paginação e testes automatizados; a integração com Moodle não foi feita.</li>
+          <li>Em contêiner, o SQLite é recriado a cada reinício.</li>
+        </ul>
+        <h2 id="uso-de-ia">Uso de Inteligência Artificial</h2>
+        <p>O Claude (Anthropic) foi usado para gerar a base do código e adequá-la ao enunciado e ao Figma. Finalidade,
+          prompts, validação e erros encontrados estão em <code>USO_DE_IA.md</code>.</p>
+        <h2 id="ver-tambem-lim">Veja também</h2>
+        <ul class="see">
+          <li><a href="#/visao-geral">Visão geral</a></li>
+        </ul>
+      </article>
 
-<footer>Catálogo de Cursos · documentação técnica · dados fictícios para fins de avaliação.</footer>
-</main>
+      <footer>Catálogo de Cursos · documentação técnica · dados fictícios para fins de avaliação.</footer>
+    </main>
 
-<aside class="toc" aria-label="Neste artigo"><h2>Neste artigo</h2><ul id="toc"></ul></aside>
-</div>
+    <aside class="toc" aria-label="Neste artigo">
+      <h2>Neste artigo</h2>
+      <ul id="toc"></ul>
+    </aside>
+  </div>
 
-<script>
-(function(){
-  var pages=[].slice.call(document.querySelectorAll("article.page")),
-      links=[].slice.call(document.querySelectorAll(".side a")), q=document.getElementById("q");
-  function show(){
-    var id=(location.hash.replace(/^#\//,"")||"visao-geral"),
-        a=pages.filter(function(p){return p.id===id})[0]||pages[0];
-    pages.forEach(function(p){p.hidden=p!==a});
-    links.forEach(function(l){l.getAttribute("href")==="#/"+a.id?l.setAttribute("aria-current","page"):l.removeAttribute("aria-current")});
-    document.title=a.dataset.title+" – Catálogo de Cursos";
-    document.getElementById("crumbs").innerHTML='<span><a href="#/visao-geral">Catálogo de Cursos</a></span><span>'+a.dataset.sec+'</span><span aria-current="page">'+a.dataset.title+'</span>';
-    document.getElementById("toc").innerHTML=[].slice.call(a.querySelectorAll("h2")).map(function(h){
-      return '<li><a href="#'+h.id+'" data-t="'+h.id+'">'+h.textContent.replace(/^GET/,"GET ")+'</a></li>'}).join("");
-    window.scrollTo(0,0);
-  }
-  document.getElementById("toc").addEventListener("click",function(e){
-    var t=e.target.closest("a[data-t]"); if(!t)return; e.preventDefault();
-    var el=document.getElementById(t.dataset.t); el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
-  });
-  q.addEventListener("input",function(){
-    var v=q.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-    links.forEach(function(l){var t=l.textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-      l.parentNode.style.display=t.indexOf(v)>-1?"":"none"});
-  });
-  document.getElementById("tema").onclick=function(){
-    var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
-    r.dataset.theme=dark?"light":"dark";
-  };
-  window.addEventListener("hashchange",show); show();
-})();
-</script>
+  <script>
+    (function () {
+      var pages = [].slice.call(document.querySelectorAll("article.page")),
+        links = [].slice.call(document.querySelectorAll(".side a")), q = document.getElementById("q");
+      function show() {
+        var id = (location.hash.replace(/^#\//, "") || "visao-geral"),
+          a = pages.filter(function (p) { return p.id === id })[0] || pages[0];
+        pages.forEach(function (p) { p.hidden = p !== a });
+        links.forEach(function (l) { l.getAttribute("href") === "#/" + a.id ? l.setAttribute("aria-current", "page") : l.removeAttribute("aria-current") });
+        document.title = a.dataset.title + " – Catálogo de Cursos";
+        document.getElementById("crumbs").innerHTML = '<span><a href="#/visao-geral">Catálogo de Cursos</a></span><span>' + a.dataset.sec + '</span><span aria-current="page">' + a.dataset.title + '</span>';
+        document.getElementById("toc").innerHTML = [].slice.call(a.querySelectorAll("h2")).map(function (h) {
+          return '<li><a href="#' + h.id + '" data-t="' + h.id + '">' + h.textContent.replace(/^GET/, "GET ") + '</a></li>'
+        }).join("");
+        window.scrollTo(0, 0);
+      }
+      document.getElementById("toc").addEventListener("click", function (e) {
+        var t = e.target.closest("a[data-t]"); if (!t) return; e.preventDefault();
+        var el = document.getElementById(t.dataset.t); el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth" });
+      });
+      q.addEventListener("input", function () {
+        var v = q.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        links.forEach(function (l) {
+          var t = l.textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          l.parentNode.style.display = t.indexOf(v) > -1 ? "" : "none"
+        });
+      });
+      document.getElementById("tema").onclick = function () {
+        var r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+        r.dataset.theme = dark ? "light" : "dark";
+      };
+      window.addEventListener("hashchange", show); show();
+    })();
+  </script>
 </body>
+
 </html>
